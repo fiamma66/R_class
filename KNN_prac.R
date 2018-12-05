@@ -27,6 +27,11 @@ pred <- knn(train = traindata[-5],test = testdata[-5], cl = train_y, k = k_set )
 #(7) 混淆矩陣計算準確度
 message("準確度：",sum(diag(table(test_y,pred))) / sum(table(test_y,pred)) *100,"%")
 
+# 一次安裝所有packages
+packages <- c("C50","tree", "rpart","randomForest")
+for (i in packages){ install.packages(i) }
+#一次載入packages
+sapply(packages, FUN = library, character.only = TRUE)
 
 
 
